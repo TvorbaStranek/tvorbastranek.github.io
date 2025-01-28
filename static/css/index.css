@@ -1,0 +1,116 @@
+body {
+    margin: 0%;
+    overflow: hidden;
+    max-width: 100vw;
+}
+
+header {
+    width: 100%;
+    height: 100vh; /* Nastav pevnou vý99šku */
+}
+
+.hidd {
+    visibility: hidden;
+    max-width: 0%;
+    width: 0%;
+    max-height: 0%;
+    height: 0%;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    height: 100vh; /* Nastav pevnou výšku */
+    margin: auto;
+    overflow: hidden;
+    background: black; /* Barva pozadí pro test */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Ve výchozím stavu neviditelný */
+    z-index: 1; /* Nižší úroveň */
+    transition: opacity 1s ease; /* Plynulý přechod opacity */
+}
+
+.slide.active {
+    opacity: 1; /* Zobraz aktivní slide */
+    z-index: 2; /* Nový slide překryje starý */
+    animation: slideIn 1s ease forwards; /* Animace přechodu zleva */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%); /* Začátek mimo obrazovku vlevo */
+    }
+    to {
+        transform: translateX(0); /* Přesun na místo */
+    }
+}
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+.slide img {
+    width: 100%; /* Obrázek se přizpůsobí šířce kontejneru */
+    height: auto; /* Zachování poměru stran obrázku */
+    object-fit: contain; /* Pokud obrázek není přesný, přizpůsobí se, aby nebyl oříznutý */
+}
+
+.nav-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+
+.nav-text * {
+    backdrop-filter: blur(20px); /* Rozmazání pozadí */
+    -webkit-backdrop-filter: blur(20px); /* Pro podporu v Safari */
+    padding: 6px;
+    border-radius: 16px;
+    color: white;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0); /* Poloprůhledný tmavý filtr */
+    z-index: 1; /* Pod obrázkem */
+}
+
+.slide img {
+    position: relative;
+    z-index: 2; /* Obrázek nad překryvem */
+}
+
+.nav-text h1, 
+.nav-text nav a {
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8); /* Tmavý stín kolem textu */
+}
