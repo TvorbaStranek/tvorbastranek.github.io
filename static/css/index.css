@@ -84,7 +84,6 @@ button {
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-    background-color: rgb(06, 06, 06);
 }
 
 .nav-text * {
