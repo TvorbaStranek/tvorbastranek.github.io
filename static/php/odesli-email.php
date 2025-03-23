@@ -5,8 +5,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST["telefon"];
     $message = $_POST["zprava"];
 
-    $to = "danielbalcar22@gmail.com";
-    $subject = "Kontaktní formulář";
+    $to = "m.balcar@seznam.cz";
+    $subject = "Reality111 - Kontaktní formulář";
     $headers = "From: $email";
 
     $body = "Jméno: $name\nE-mail: $email\nTelefon: $phone\nZpráva:\n$message";
